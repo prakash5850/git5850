@@ -1,0 +1,65 @@
+1. Create an instance in the US-East-1 (N. Virginia) region with Linux OS and
+manage the requirement of web servers of your company using AMI.
+
+
+Steps ->
+1) GOTO EC2 service > Instances > Launch instance
+2) Give name to instance > Choose OS - Ubuntu
+3) Create a key pair or use the previous one
+4) SG -> Allow SSH, HTTP, HTTPS
+5) Click launch instance
+6) Connect instance > Write the below commands to install apache2
+
+
+sudo apt-get update
+sudo apt-get install apache2 -y
+
+
+
+2. Replicate the instance in the US-West-2 (Oregon) region
+
+
+Steps -> 
+1) Choose VM1 > actions > Images/templates > Create an image
+2) Give name to your image / AMI and create 
+3) Goto AMIs > Choose AMI > Actions > Copy AMI
+4) Give name to copied AMI > Choose destination region (oregon) 
+5) Create the copy of ami
+6) GOTO Oregon region and check the copy of ami created
+7) launch instance through the copy > Choose my AMI
+8) Launch instance in Oregon region.
+
+
+
+
+3. Build two EBS volumes and attach them to the instance in the US-East-1
+(N. Virginia) region.
+Steps -> 
+
+
+1)Goto EBS Volumes > Create volume
+2) Size of volume + AZ (make sure it is same as of instance) 
+3) Choose vol > actions > attach to instance
+4) Repeat the steps for volume 2
+
+
+4. Delete one volume after detaching it and extend the size of the other
+volume.
+
+
+Steps-> 
+1) Choose vol > actions > detach the volume
+2) choose the vol > actions > delete the volume
+
+
+3) choose the vol2 > actions> modify volume > increase the size of vol
+5. Take backup of this EBS volume
+
+
+Steps -> 
+1) Choose vol > actions > create snapshot
+
+
+
+
+
